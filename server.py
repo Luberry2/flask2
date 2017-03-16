@@ -1,5 +1,6 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 from random import choice, randint
+
 
 
 app = Flask(__name__)
@@ -22,6 +23,9 @@ def lucky_number():
     return "<html><body><h1>" + lucky_message + "</h1></body></html>"
 
 
+@app.route('/form')
+def show_form():
+    return render_template('form.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
